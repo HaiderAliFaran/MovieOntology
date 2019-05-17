@@ -1,0 +1,340 @@
+@prefix : <http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology> .
+
+<http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#hasActor
+:hasActor rdf:type owl:ObjectProperty ;
+          rdfs:domain :Movie ;
+          rdfs:range :Actor .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#hasDirector
+:hasDirector rdf:type owl:ObjectProperty ;
+             rdfs:domain :Movie ;
+             rdfs:range :Director .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#hasEditor
+:hasEditor rdf:type owl:ObjectProperty ;
+           rdfs:domain :Movie ;
+           rdfs:range :Editor .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#hasGenre
+:hasGenre rdf:type owl:ObjectProperty ;
+          rdfs:domain :Movie ;
+          rdfs:range :Genre .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#hasProducer
+:hasProducer rdf:type owl:ObjectProperty ;
+             rdfs:domain :Movie ;
+             rdfs:range :Producer .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#hasProductionHouse
+:hasProductionHouse rdf:type owl:ObjectProperty ;
+                    rdfs:domain :Movie ;
+                    rdfs:range :Production_House .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#hasWriter
+:hasWriter rdf:type owl:ObjectProperty ;
+           rdfs:domain :Movie ;
+           rdfs:range :Writer .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#BoxOfficeBussiness
+:BoxOfficeBussiness rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :Movie ;
+                    rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#IMDBRating
+:IMDBRating rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Movie ;
+            rdfs:range xsd:float .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#ReleaseDate
+:ReleaseDate rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Movie ;
+             rdfs:range xsd:dateTimeStamp .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#title
+:title rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Movie ;
+       rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Action
+:Action rdf:type owl:Class ;
+        rdfs:subClassOf :Genre ;
+        owl:disjointWith :Horror ,
+                         :Science-Fiction .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Actor
+:Actor rdf:type owl:Class ;
+       rdfs:subClassOf :Person ;
+       owl:disjointWith :Director ,
+                        :Science-Fiction .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Adventure
+:Adventure rdf:type owl:Class ;
+           rdfs:subClassOf :Genre ;
+           owl:disjointWith :Horror ,
+                            :Science-Fiction .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Comedy
+:Comedy rdf:type owl:Class ;
+        rdfs:subClassOf :Genre ;
+        owl:disjointWith :Horror ,
+                         :Science-Fiction .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Director
+:Director rdf:type owl:Class ;
+          rdfs:subClassOf :Person ;
+          owl:disjointWith :Editor ,
+                           :Producer ,
+                           :Science-Fiction ,
+                           :Writer .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Editor
+:Editor rdf:type owl:Class ;
+        rdfs:subClassOf :Person ;
+        owl:disjointWith :Science-Fiction .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Genre
+:Genre rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Horror
+:Horror rdf:type owl:Class ;
+        rdfs:subClassOf :Genre ;
+        owl:disjointWith :Science-Fiction .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Movie
+:Movie rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Person
+:Person rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Producer
+:Producer rdf:type owl:Class ;
+          rdfs:subClassOf :Person ;
+          owl:disjointWith :Science-Fiction .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Production_House
+:Production_House rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Science-Fiction
+:Science-Fiction rdf:type owl:Class ;
+                 rdfs:subClassOf :Genre ;
+                 owl:disjointWith :Writer .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Writer
+:Writer rdf:type owl:Class ;
+        rdfs:subClassOf :Person .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Action
+:Action rdf:type owl:NamedIndividual ,
+                 :Action .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Adventure
+:Adventure rdf:type owl:NamedIndividual ,
+                    :Adventure .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Andy_Mushietti
+:Andy_Mushietti rdf:type owl:NamedIndividual ,
+                         :Director .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Angelina_Jolie
+:Angelina_Jolie rdf:type owl:NamedIndividual ,
+                         :Actor .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Bill_Skarsgard
+:Bill_Skarsgard rdf:type owl:NamedIndividual ,
+                         :Actor .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Comedy
+:Comedy rdf:type owl:NamedIndividual ,
+                 :Comedy .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Dan_Lin
+:Dan_Lin rdf:type owl:NamedIndividual ,
+                  :Producer .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Derek_Haas
+:Derek_Haas rdf:type owl:NamedIndividual ,
+                     :Writer .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Finn_Wolfhard
+:Finn_Wolfhard rdf:type owl:NamedIndividual ,
+                        :Actor .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Horror
+:Horror rdf:type owl:NamedIndividual ,
+                 :Action .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#IT
+:IT rdf:type owl:NamedIndividual ,
+             :Movie ;
+    :hasActor :Bill_Skarsgard ,
+              :Finn_Wolfhard ,
+              :Jaeden_Martell ;
+    :hasDirector :Andy_Mushietti ;
+    :hasEditor :Jason_Ballantine ;
+    :hasGenre :Dan_Lin ,
+              :Horror ;
+    :hasProducer :Roy_Lee ;
+    :hasProductionHouse :New_Line_Cinema ;
+    :hasWriter :Stephen_King ;
+    :BoxOfficeBussiness "700,381,748" ;
+    :IMDBRating 7.4 ;
+    :ReleaseDate "8 September 2017" ;
+    :title "IT" .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Jaeden_Martell
+:Jaeden_Martell rdf:type owl:NamedIndividual ,
+                         :Actor .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#James_McAvoy
+:James_McAvoy rdf:type owl:NamedIndividual ,
+                       :Actor .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Jason_Ballantine
+:Jason_Ballantine rdf:type owl:NamedIndividual ,
+                           :Editor .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Jim_Lemley
+:Jim_Lemley rdf:type owl:NamedIndividual ,
+                     :Producer .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Jon_Farhat
+:Jon_Farhat rdf:type owl:NamedIndividual ,
+                     :Editor .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Marc_Platt
+:Marc_Platt rdf:type owl:NamedIndividual ,
+                     :Producer .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Michael_Brandt
+:Michael_Brandt rdf:type owl:NamedIndividual ,
+                         :Writer .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Morgan_Freeman
+:Morgan_Freeman rdf:type owl:NamedIndividual ,
+                         :Actor .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Movie1
+:Movie1 rdf:type owl:NamedIndividual ,
+                 :Movie ;
+        :hasActor :Angelina_Jolie ,
+                  :James_McAvoy ,
+                  :Morgan_Freeman ;
+        :hasDirector :Timur_Bekmambetov ;
+        :hasEditor :Jon_Farhat ,
+                   :Stefen_Frangmeier ;
+        :hasGenre :Action ;
+        :hasProducer :Jim_Lemley ,
+                     :Marc_Platt ;
+        :hasProductionHouse :Universal_Pictures ;
+        :hasWriter :Derek_Haas ,
+                   :Michael_Brandt ;
+        :BoxOfficeBussiness "341,433,252" ;
+        :IMDBRating 6.7 ;
+        :ReleaseDate "27 June 2008" ;
+        :title "Wanted"^^xsd:string .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#New_Line_Cinema
+:New_Line_Cinema rdf:type owl:NamedIndividual ,
+                          :Production_House .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Roy_Lee
+:Roy_Lee rdf:type owl:NamedIndividual ,
+                  :Producer .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Science-Fiction
+:Science-Fiction rdf:type owl:NamedIndividual ,
+                          :Science-Fiction .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Stefen_Frangmeier
+:Stefen_Frangmeier rdf:type owl:NamedIndividual ,
+                            :Editor .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Stephen_King
+:Stephen_King rdf:type owl:NamedIndividual ,
+                       :Writer .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Timur_Bekmambetov
+:Timur_Bekmambetov rdf:type owl:NamedIndividual ,
+                            :Director .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2019/4/Movieontology#Universal_Pictures
+:Universal_Pictures rdf:type owl:NamedIndividual ,
+                             :Production_House .
+
+
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
